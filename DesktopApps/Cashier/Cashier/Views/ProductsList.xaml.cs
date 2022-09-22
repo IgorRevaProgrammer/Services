@@ -1,5 +1,4 @@
-﻿using Cashier.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +15,14 @@ using System.Windows.Shapes;
 
 namespace Cashier.Views
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Interaction logic for ProductsList.xaml
+    /// </summary>
+    public partial class ProductsList : Page
     {
-        public MainWindow()
+        public ProductsList()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-            frame.Content = new AuthPage();
         }
     }
 }
