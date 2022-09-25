@@ -1,12 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <Style TargetType="Page">
-        <Setter Property="Background" Value="#85bb65"/>
+    <SolidColorBrush Color="#85bb65" x:Key="BaseGreenColor"/>
+    <Style TargetType="Page" x:Key="AuthPageStyle">
+        <Setter Property="Background" Value="{StaticResource BaseGreenColor}"/>
     </Style>
     <Style x:Key="RoundStyle" TargetType="Ellipse">
-      
-        
         <Setter Property="Fill" Value="White"/>
+        <Setter Property="Margin" Value="0,50,0,50"/>
+    </Style>
+    <Style TargetType="Label" x:Key="DollarLabelStyle">
+        <Setter Property="FontSize" Value="300"/>
+        <Setter Property="FontFamily" Value="{StaticResource FontSolid}"/>
+        <Setter Property="Width" Value="350"/>
+        <Setter Property="Height" Value="500"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
     </Style>
 </ResourceDictionary>

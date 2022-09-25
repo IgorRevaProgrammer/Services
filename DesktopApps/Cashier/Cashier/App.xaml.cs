@@ -16,7 +16,7 @@ namespace Cashier
         protected override void OnStartup(StartupEventArgs e)
         {
             var builder = new ContainerBuilder();
-            //builder.RegisterType<MainWindowViewModel>();
+            builder.RegisterType<MainWindowViewModel>();
             builder.RegisterType<AuthPageViewModel>();
             builder.RegisterType<ProductListPageViewModel>();
             builder.RegisterType<MainWindow>().AsSelf();

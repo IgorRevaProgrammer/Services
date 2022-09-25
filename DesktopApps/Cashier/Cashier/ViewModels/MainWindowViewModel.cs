@@ -1,5 +1,6 @@
 ﻿using Cashier.BaseClassesForWPFDeveloping;
 using Cashier.Views;
+using System.Windows.Controls;
 
 namespace Cashier.ViewModels
 {
@@ -9,9 +10,26 @@ namespace Cashier.ViewModels
     /// </summary>
     public class MainWindowViewModel : BaseViewModel
     {
+        private Page currentPage;
+        /// <summary>
+        /// Current page property
+        /// </summary>
+        public Page CurrentPage
+        {
+            get
+            {
+                return currentPage;
+            }
+            set
+            {
+                currentPage = value;
+                OnPropertyChanged("CurrentPage");
+            }
+        }
         public MainWindowViewModel()
         {
-            Base.CurrentPage = new AuthPage();
+            
+            CurrentPage = new AuthPage();
         }
     }
 }

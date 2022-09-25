@@ -18,11 +18,12 @@ namespace Cashier.Views
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-            frame.Content = new AuthPage();
+            var a = fr.Content;
+            fr.Navigate(new AuthPage());
         }
     }
 }

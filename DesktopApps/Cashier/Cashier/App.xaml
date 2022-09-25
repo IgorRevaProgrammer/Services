@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/FontDict.xaml"/>
                 <ResourceDictionary Source="Styles/AuthPageStyle.xaml"/>
+                <ResourceDictionary Source="Styles/SharedStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
