@@ -1,25 +1,22 @@
 ﻿namespace Cashier.BaseClassesForWPFDeveloping
 {
     using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Runtime.CompilerServices;
-    using System.Windows.Controls;
+    using System.Windows.Input;
+
     /// <summary>
     /// Base class for ever ViewModel.
-    /// Contains Current page property and Property Changed event
+    /// Implements INotifyPropertyChanged
     /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
-        private static BaseViewModel globalResources;
-        /// <summary>
-        /// Single instance of ItSelf
-        /// </summary>>
-        public static BaseViewModel Base => globalResources ?? (globalResources = new BaseViewModel());
-      
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected virtual void OnPageLoaded() 
+        { 
         }
+        private ICommand loaded;
+        public ICommand Loaded => loaded ?? (loaded = new BaseCommand(o => OnPageLoaded()));
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

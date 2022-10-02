@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Cashier.ViewModels;
+using Data.Models;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Cashier.Views
 {
     /// <summary>
-    /// Interaction logic for ProductsList.xaml
+    /// Product list page<br/>
+    /// Adding products to list
     /// </summary>
-    public partial class ProductsList : Page
+    public partial class ProductsList : Page, IPage
     {
-        public ProductsList()
+        public ProductsList(ProductListPageViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
         }
+        Pages IPage.Name => Pages.ProductList;
     }
 }

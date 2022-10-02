@@ -4,21 +4,59 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cashier.Views"
+      xmlns:extensions="clr-namespace:Cashier.ExtendedControls"
       mc:Ignorable="d" 
       d:DesignHeight="1080" 
       d:DesignWidth="1920"
-      Title="Authorization page" Style="{StaticResource AuthPageStyle}">
+      Title="Authorization page" 
+      Style="{StaticResource AuthPageStyle}">
     <Grid>
-        <StackPanel Orientation="Horizontal" 
-                    HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Right">
+            <Button Content="&#xf00d;"
+                Style="{StaticResource CloseButtonStyle}"
+                    Command="{Binding CloseAppCommand}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Label Content="&#xf155;"
                Style="{StaticResource DollarLabelStyle}"/>
-            <Ellipse x:Name="Round" Width="{Binding ElementName=Round, Path=ActualHeight}"
-                Style="{StaticResource RoundStyle}">
-            </Ellipse>
-            <Label
+            <Grid Grid.Column="1">
+                <Ellipse x:Name="Round" 
+                     Width="{Binding ElementName=Round, Path=ActualHeight}"
+                Style="{StaticResource RoundStyle}"/>
+                <Grid Style="{StaticResource AuthControlStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalAlignment="Center">
+                        <TextBlock Text="Authorization"
+                               Style="{StaticResource TextBlockStyle}"/>
+                    </Grid>
+                    <extensions:ExtendedTextBox Grid.Row="1" 
+                                                PlaceHolder="Input login"
+                                                Style="{StaticResource TextBoxStyle}"/>
+                    <extensions:ExtendedTextBox Grid.Row="2" 
+                                                PlaceHolder="Input password"
+                                                Style="{StaticResource TextBoxStyle}"/>
+                    <Button Grid.Row="3"
+                            Content="Log in"
+                            Style="{StaticResource LogInButton}"/>
+                </Grid>
+            </Grid>
+            <Label Grid.Column="2"
                Content="&#xf155;"
                Style="{StaticResource DollarLabelStyle}"/>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Page>
